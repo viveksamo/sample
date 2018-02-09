@@ -1,0 +1,128 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "Local URL",
+      "url": "http://192.169.0.178:50560/cgi-bin/WebObjects/UMServices.woa/dfwonz"
+    },
+    {
+      "description": "UAT URL",
+      "url": "https://rest-uat-att.evergent.com/dfwonz"
+    }
+  ],
+  "info": {
+    "description": "This is API Documentation for Evergent",
+    "version": "1.0.0",
+    "title": "Evergent API Inventory",
+    "contact": {
+      "email": "vivek.sadhineni@evergent.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "dfwonz",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "zulu",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/getProducts": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "summary": "gets all Products in the system item",
+        "operationId": "GetProductsRequestMessage",
+        "description": "retrevies all the products based on DMA and sales channels provided",
+        "responses": {
+          "201": {
+            "description": "item created"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetProductsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/GetProductsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetProductsRequestMessage": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "dmaID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "dmaID": {
+            "type": "string",
+            "example": "001",
+            "description": "Discrete Area Id of the Prject"
+          },
+          "salesChannel": {
+            "type": "string",
+            "example": "Residential",
+            "description": "salesChannel of the customer"
+          },
+          "offerType": {
+            "type": "string",
+            "example": "Residential",
+            "description": "offerType of the customer"
+          },
+          "offerTypes": {
+            "type": "array",
+            "xml": {
+              "name": "offerTypes",
+              "wrapped": true
+            },
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
