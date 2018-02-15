@@ -68,6 +68,41 @@
           }
         }
       }
+    },
+    "/customerLoginV2": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "customerLoginRequestMessage",
+        "description": "customerLoginV2() REST API is used to authenticate the user. provided",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2134": {
+            "description": "Wrong Username or Password"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerLoginRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/customerLoginRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -120,6 +155,59 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "customerLoginRequestMessage": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "deviceId",
+          "contactUserName",
+          "customerPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "contactUserName": {
+            "type": "string",
+            "example": "001",
+            "description": "Customer User name"
+          },
+          "customerPassword": {
+            "type": "string",
+            "example": "Residential",
+            "description": "Customer password"
+          },
+          "deviceId": {
+            "type": "string",
+            "example": "Residential",
+            "description": "deviceId Number of the device"
+          },
+          "deviceType": {
+            "type": "string",
+            "example": "Residential",
+            "description": "deviceId Number of the device"
+          },
+          "deviceName": {
+            "type": "string",
+            "example": "Residential",
+            "description": "deviceId Number of the device"
           }
         }
       }
