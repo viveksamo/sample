@@ -26,10 +26,6 @@
     {
       "name": "aeg",
       "description": "Secured Admin-only calls"
-    },
-    {
-      "name": "zulu",
-      "description": "Operations available to regular developers"
     }
   ],
   "paths": {
@@ -3093,7 +3089,66 @@
           },
           "couponCode": {
             "type": "string",
-            "description": "Coupon code, which is to be redeemed on the product getVODEntitlements: type: object required: - apiUser - channelPartnerID - apiPassword - sessionToken properties: channelPartnerID: type: string description: channel partner Id of the project apiUser: type: string description: API User Name for the project apiPassword: type: string description: API Password for the project sessionToken: type: string description: Unique token generated for the customer on successful            authentication validateParentalControlPIN: type: object required: - apiUser - channelPartnerID - apiPassword - sessionToken - parentalControlPin properties: channelPartnerID: type: string description: channel partner Id of the project apiUser: type: string description: API User Name for the project apiPassword: type: string description: API Password for the project sessionToken: type: string description: Unique token generated for the customer on successful            authentication parentalControlPin: type: string description: Secure pin of parental control updateCustomerSecurity: type: object required: - apiUser - channelPartnerID - apiPassword - sessionToken - questions properties: channelPartnerID: type: string description: channel partner Id of the project apiUser: type: string description: API User Name for the project apiPassword: type: string description: API Password for the project sessionToken: type: string description: Unique identifier of the account. questions: type: array xml: name: questions wrapped: true items: type: object $ref: "
+            "description": "Coupon code, which is to be redeemed on the product"
+          }
+        }
+      },
+      "getVODEntitlements": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the customer on successful            authentication"
+          }
+        }
+      },
+      "validateParentalControlPIN": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "parentalControlPin"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the customer on successful authentication"
+          },
+          "parentalControlPin": {
+            "type": "string",
+            "description": "Secure pin of parental control"
           }
         }
       },
