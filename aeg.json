@@ -3053,7 +3053,7 @@
           },
           "sessionToken": {
             "type": "string",
-            "description": "Unique token generated for the customer on successful            authentication"
+            "description": "Unique token generated for the customer on successful authentication"
           },
           "contactPassword": {
             "type": "string",
@@ -3116,7 +3116,7 @@
           },
           "sessionToken": {
             "type": "string",
-            "description": "Unique token generated for the customer on successful            authentication"
+            "description": "Unique token generated for the customer on successful authentication"
           }
         }
       },
@@ -3192,7 +3192,7 @@
           },
           "sessionToken": {
             "type": "string",
-            "description": "Unique token generated for the customer on successful            authentication"
+            "description": "Unique token generated for the customer on successful authentication"
           }
         }
       },
@@ -3422,7 +3422,7 @@
           },
           "sessiontoken": {
             "type": "string",
-            "description": "Unique token generated for the customer on successful             authentication."
+            "description": "Unique token generated for the customer on successful authentication."
           },
           "label": {
             "type": "string",
@@ -3563,7 +3563,7 @@
           },
           "customerOldPassword": {
             "type": "string",
-            "description": "Customer’s Old password (Mandatory in the case if we              provide customer password"
+            "description": "Customer’s Old password (Mandatory in the case if we provide customer password"
           }
         }
       },
@@ -3617,7 +3617,7 @@
           },
           "sessiontoken": {
             "type": "string",
-            "description": "Unique token generated for the customer on successful            authentication."
+            "description": "Unique token generated for the customer on successful authentication."
           }
         }
       },
@@ -3671,7 +3671,7 @@
           },
           "sessiontoken": {
             "type": "string",
-            "description": "A unique token generated for the customer on                     successful authentication."
+            "description": "A unique token generated for the customer on successful authentication."
           },
           "spAccountID": {
             "type": "string",
@@ -3885,11 +3885,11 @@
           },
           "collectedFromStore": {
             "type": "boolean",
-            "description": "Indicate whether service to be collected from store or            not."
+            "description": "Indicate whether service to be collected from store or not."
           },
           "sameAsBillingAddress": {
             "type": "boolean",
-            "description": "Indicates whether the shipping address is same as                billing address or not"
+            "description": "Indicates whether the shipping address is same as billing address or not"
           },
           "shippingAddress": {
             "type": "object",
