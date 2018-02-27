@@ -1,0 +1,2479 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "Local URL",
+      "url": "http://192.169.0.178:50560/cgi-bin/WebObjects/UMServices.woa/dfwonz"
+    },
+    {
+      "description": "UAT URL",
+      "url": "https://rest-uat-att.evergent.com/dfwonz"
+    }
+  ],
+  "info": {
+    "description": "This is API Documentation for Evergent",
+    "version": "1.0.0",
+    "title": "Evergent API Inventory",
+    "contact": {
+      "email": "vivek.sadhineni@evergent.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "dfwonz",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "zulu",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/getProducts": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "summary": "gets all Products in the system item",
+        "operationId": "GetProductsRequestMessage",
+        "description": "retrevies all the products based on DMA and sales channels provided",
+        "responses": {
+          "201": {
+            "description": "item created"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetProductsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/GetProductsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPayments": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getPaymentsRequestMessage",
+        "description": "getPayments () REST API is used to get all the successful             payments of the account including next Billing amount.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getPaymentsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPayments"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeSubsciption": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "removeSubsciptionRequestMessage",
+        "description": "removeSubscription () REST API removes a subscription from            the customer Account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV1099": {
+            "description": "System has technical issues."
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session                Token is required"
+          },
+          "eV1663": {
+            "description": "Either ServiceId or ServiceName is required"
+          },
+          "eV1672": {
+            "description": "Service Id"
+          },
+          "eV1671": {
+            "description": "Service name"
+          },
+          "eV1673": {
+            "description": "ServiceId/ServiceName"
+          },
+          "eV1689": {
+            "description": "No active subscription product with this ServiceId               /ServiceName in this account."
+          },
+          "eV2158": {
+            "description": "Service can't remove or invalid"
+          },
+          "eV1419": {
+            "description": "end date should be greater than or equal to start                date"
+          },
+          "eV1440": {
+            "description": "One time products cant remove"
+          },
+          "eV1747": {
+            "description": "Third party API call failed"
+          },
+          "bb0001": {
+            "description": "Third party API call failed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "removeSubscriptionRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/removeSubscription"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updatePaymentInfo": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "updatePaymentInfoRequestMessage",
+        "description": "updatePaymentInfo () REST API is used to add/update/remove            the payment information for a customer Account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID  “XXXX” for XXXX"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID “XXXX” for XXXX"
+          },
+          "eV1109": {
+            "description": "“Label should be ACH or Card or PayPalAccount in                  Payment Method Info”"
+          },
+          "eV1584": {
+            "description": "“Label cannot be empty”"
+          },
+          "eV1592": {
+            "description": "“We can not select Auto Payment option while                      inactivating the Payment Method”."
+          },
+          "eV1588": {
+            "description": "“Status must be either Active or InActive”"
+          },
+          "eV2124": {
+            "description": "“Invalid Session Token”"
+          },
+          "eV2521": {
+            "description": "Insufficient Address parameters"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "updatePaymentInfoRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updatePaymentInfo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forgotContactPassword": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "forgotContactPasswordRequestMessage",
+        "description": "forgotContactPassword () REST API is used to reset the               contact password of the customer. If this api is executed            customer will be notified with a mail containing reset               password link.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2145": {
+            "description": "Missing Parameter(s)"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV1452": {
+            "description": "Mail sent successfully"
+          },
+          "eV2435": {
+            "description": "Your account is associated with"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "forgotContactPasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/forgotContactPassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancelBundledSubscription": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "cancelBundledSubscriptionRequestMessage",
+        "description": "cancelBundledSubscription() REST API is used to change               /delete Mobility promotion and Mobility HBO of the                   customer account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cancelBundledSubscriptionRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/cancelBundledSubscription"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reactivateSubscription": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "reactivateSubscriptionRequestMessage",
+        "description": "reactivateSubscription() REST API is to reactivate the               desired services  of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reactivateSubscriptionRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/reactivateSubscription"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateServiceEligibilityDetails": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "updateServiceEligibilityDetailsRequestMessage",
+        "description": "updateServiceEligibilityDetails () REST API is used to               update the existing CTN (Cellular Telephone Number)                  eligibility details.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "updateServiceEligibilityDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateServiceEligibilityDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateContact": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "updateContactRequestMessage",
+        "description": "updateContact () REST API is used to update the contact of            an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session                  Token  is required"
+          },
+          "eV1047": {
+            "description": "First Name should not exceed 100 characters"
+          },
+          "eV1048": {
+            "description": "Last Name should not exceed 100 characters"
+          },
+          "eV1073": {
+            "description": "length should be 10 digits"
+          },
+          "eV1057": {
+            "description": "Email should not exceed 256 characters"
+          },
+          "eV1064": {
+            "description": "User Name length should not exceed 256"
+          },
+          "eV1065": {
+            "description": "User Name length should be minimum 4"
+          },
+          "eV1066": {
+            "description": "User Name - Spaces are not allowed"
+          },
+          "eV1068": {
+            "description": "Password length should not exceed 100"
+          },
+          "eV1070": {
+            "description": "Password - Spaces are not allowed"
+          },
+          "eV2034": {
+            "description": "UserName is mandatory"
+          },
+          "eV2473": {
+            "description": "Parental Control PIN shouldn't exceeded 4 digits"
+          },
+          "eV2457": {
+            "description": "New parental control pin should be numeric"
+          },
+          "eV1724": {
+            "description": "Your Request has already been submitted"
+          },
+          "eV1023": {
+            "description": "Error While Processing the request"
+          },
+          "eV2505": {
+            "description": "Old password is required"
+          },
+          "eV2504": {
+            "description": "Invalid old password"
+          },
+          "eV2515": {
+            "description": "Your password is shorter than 8 characters"
+          },
+          "eV2516": {
+            "description": "Your given password Shouldn't be \\\"Password\\"
+          },
+          "eV2517": {
+            "description": "Password should contain alphabets along with Numerics             or special character @#$%^&+=!"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "updateContactRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateContact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/isCustomerEligibleForFreeTrial": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "isCustomerEligibleForFreeTrialRequestMessage",
+        "description": "isCustomerEligibleForFreeTrial () REST API is verify                 whether the customer is eligible for free trial for the             account or not.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2155": {
+            "description": "No free trail Available"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "isCustomerEligibleForFreeTrialRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/isCustomerEligible"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPaymentMethods": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getPaymentMethodsRequestMessage",
+        "description": "getPaymentMethods() REST API is used to fetch all the                 existing payment methods of the customer Account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "ev2307": {
+            "description": "Invalid Email."
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getPaymentMethodsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPaymentMethods"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getActiveSubscriptions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getActiveSubscriptionsRequestMessage",
+        "description": "getActiveSubscriptions() REST API is used to get the                 active subscriptions of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2235": {
+            "description": "Either SP Account ID or CP Customer ID or Contact ID             orSession Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getActiveSubscriptionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getActiveSubscriptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getContact": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getContactRequestMessage",
+        "description": "getContact () REST API is used to get the contact details            of a customer in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "ev2307": {
+            "description": "Invalid Email."
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Contact ID             or Session Token is required."
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getContactRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getContact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resetPassword": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "resetPasswordRequestMessage",
+        "description": "resetPassword () REST API is used to reset the password of            an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1058": {
+            "description": "Invalid Email / Password"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2043": {
+            "description": "Not a Valid token"
+          },
+          "eV2515": {
+            "description": "Your password is shorter than 8 characters"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resetPasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/resetPassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changePassword": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "changePasswordRequestMessage",
+        "description": "changePassword () REST API is used to change the password             of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV2380": {
+            "description": "Invalid current password"
+          },
+          "eV1227": {
+            "description": "New password and Confirm password should be same"
+          },
+          "eV1228": {
+            "description": "Password must be at least 4 characters"
+          },
+          "eV2515": {
+            "description": "Your password is shorter than 8 characters"
+          },
+          "eV2516": {
+            "description": "Your given password Shouldn't be \\\"Password\\"
+          },
+          "eV2517": {
+            "description": "Password should contain alphabets along with Numerics            or special character @#$%^&+=!"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "changePasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/changePassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logOutUser": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "logOutUserRequestMessage",
+        "description": "logOutUser() REST API is used for account log out. The               input parameters provided, validate the details and logs             out the customer from his account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2139": {
+            "description": "Missing Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2231": {
+            "description": "Log out successfully"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "logOutUserRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/logOutUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applyCouponV2": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "applyCouponV2RequestMessage",
+        "description": "applyCouponV2() REST API is to apply the coupon on the               desired products/packages.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2621": {
+            "description": "Coupon code is already redeemed"
+          },
+          "eV2664": {
+            "description": "you already have an active promo code"
+          },
+          "eV2588": {
+            "description": "Invalid coupon for this account"
+          },
+          "eV1703": {
+            "description": "Account is already in inactive state"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2622": {
+            "description": "sessionToken is required"
+          },
+          "eV2619": {
+            "description": "Account must have an active basic service"
+          },
+          "eV2620": {
+            "description": "Coupon code & display order cannot be empty"
+          },
+          "eV2623": {
+            "description": "Missing coupon information"
+          },
+          "eV1842": {
+            "description": "Please enter a valid coupon code"
+          },
+          "eV1862": {
+            "description": "Maximum redemptions reached"
+          },
+          "eV1861": {
+            "description": "This coupon has already been redeemed"
+          },
+          "eV2657": {
+            "description": "Coupon is not applicable on New Customers."
+          },
+          "eV2659": {
+            "description": "Coupon is not applicable for Resubscribed Customers."
+          },
+          "eV2589": {
+            "description": "Invalid coupon"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "applyCouponV2RequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/applyCouponV2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getProrateWithTax": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getProrateWithTaxRequestMessage",
+        "description": "getProrateWithTax() REST API is used to calculate the prorate amount with tax  in Evergent system. provided",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV1267": {
+            "description": "DmaId is mandatory"
+          },
+          "eV1106": {
+            "description": "Insufficient parameters. Please provide Services Info"
+          },
+          "eV2518": {
+            "description": "Address is mandatory"
+          },
+          "eV2519": {
+            "description": "Location not found with the given address"
+          },
+          "eV2521": {
+            "description": "Vertex call Fail"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getProrateWithTaxRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getProrateWithTax"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addSubscriptions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "addSubscriptionsRequestMessage",
+        "description": "addSubscriptions () REST API places multiple                          subscription at once for the customer.",
+        "responses": {
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV1106": {
+            "description": "Insufficient parameters. Please provide Services Info"
+          },
+          "eV1663": {
+            "description": "Either ServiceId or ServiceName is required"
+          },
+          "eV1136": {
+            "description": "Invalid Quantity, should be in numbers"
+          },
+          "eV1668": {
+            "description": "Service Type should be PRODUCT/PACKAGE"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1703": {
+            "description": "Account is already in inactive state"
+          },
+          "eV1107": {
+            "description": "Insufficient parameters. Please provide                          paymentmethodInfo"
+          },
+          "eV1108": {
+            "description": "Label cannot be empty in Payment Method Info"
+          },
+          "eV1513": {
+            "description": "Invalid label"
+          },
+          "eV1110": {
+            "description": "Invalid Parameters in Payment Method Info"
+          },
+          "eV1680": {
+            "description": "Invalid State in CardBilling"
+          },
+          "eV1681": {
+            "description": "Invalid Country in CardBilling"
+          },
+          "eV1682": {
+            "description": "Insufficient CardBilling Parameters"
+          },
+          "eV1854": {
+            "description": "Exception occurred while inserting payment method"
+          },
+          "eV1747": {
+            "description": "Third party API call failed"
+          },
+          "eV1684": {
+            "description": "Payment method is mandatory"
+          },
+          "eV1679": {
+            "description": "No Promotional Item exists with the given"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service Id"
+          },
+          "eV1138": {
+            "description": "No Service exists with the given name"
+          },
+          "eV1152": {
+            "description": "already exist in Business Unit, please enter unique serial number"
+          },
+          "eV1153": {
+            "description": "Communication failure occurred while validating the CPE"
+          },
+          "eV1385": {
+            "description": "Payment Declined by Payment Gateway due to following             reason"
+          },
+          "eV1158": {
+            "description": "Error While Processing Payment"
+          },
+          "eV1133": {
+            "description": "The Status of the given payment method is Inactive.              Please activate it before using."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerLoginRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/addSubscriptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customerLoginV2": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "customerLoginRequestMessage",
+        "description": "customerLoginV2() REST API is used to authenticate the user. provided",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2134": {
+            "description": "Wrong Username or Password"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerLoginRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/customerLoginRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateCustomerSecurityQuestions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "updateCustomerSecurityQuestionsRequestMessage",
+        "description": "updateCustomerSecurityQuestions() REST API is to update              the security questionnaire",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "updateCustomerSecurityQuestionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateCustomerSecurity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllSecurityQuestions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getAllSecurityQuestionsRequestMessage",
+        "description": "getAllSecurityQuestions() REST API is to retrieve the                security question defined in BU level",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1234": {
+            "description": "Invalid Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getAllSecurityQuestionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAllSecurityQuestions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getCustomerSecurityQuestions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "getCustomerSecurityQuestionsRequestMessage",
+        "description": "getCustomerSecurityQuestions() REST API is to return the             specific set of questions answered by the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "getCustomerSecurityQuestionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getCustomerSecurityQuestions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeSubsciptions": {
+      "post": {
+        "tags": [
+          "dfwonz"
+        ],
+        "operationId": "removeSubsciptionsRequestMessage",
+        "description": "removeSubscriptions () REST API removes multiple                     subscriptions at once from the customer Account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXX for ATT"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session                Token is required"
+          },
+          "eV1689": {
+            "description": "No active subscription product with this ServiceId               /ServiceName in this account"
+          },
+          "eV1663": {
+            "description": "Either ServiceId or ServiceName is required"
+          },
+          "eV1135": {
+            "description": "Invalid Quantity, Quantity of the Service should be              greater than or equal to one"
+          },
+          "eV1439": {
+            "description": "Quantity should be less than product quantity"
+          },
+          "eV1026": {
+            "description": "Invalid Reason Code"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "removeSubsciptionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/removeSubsciptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetProductsRequestMessage": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "dmaID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "dmaID": {
+            "type": "string",
+            "example": "001",
+            "description": "Discrete Area Id of the Prject"
+          },
+          "salesChannel": {
+            "type": "string",
+            "example": "Residential",
+            "description": "salesChannel of the customer"
+          },
+          "offerType": {
+            "type": "string",
+            "example": "Residential",
+            "description": "offerType of the customer"
+          },
+          "itemsInfo": {
+            "type": "array",
+            "xml": {
+              "name": "itemsInfo",
+              "wrapped": true
+            },
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "updateServiceEligibilityDetails": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "status",
+          "requestId"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "requestId": {
+            "type": "string",
+            "example": 12435443234,
+            "description": "Tracking ID"
+          },
+          "ban": {
+            "type": "string",
+            "example": 12435443234,
+            "description": "sBilling account number of the customer"
+          },
+          "subscriberId": {
+            "type": "string",
+            "example": 12435443234,
+            "description": "Unique identifier for the CTN"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": 12435443234,
+            "description": "phonenumber of the customer"
+          },
+          "refreshURL": {
+            "type": "string",
+            "example": "https://directvnow.com",
+            "description": "OAuth details"
+          },
+          "accessToken": {
+            "type": "string",
+            "example": "Cv7t-0LUV",
+            "description": "OAuth Access Token"
+          },
+          "status": {
+            "type": "string",
+            "example": "ELIGIBLE",
+            "description": "CTN consent status or eligibility status"
+          },
+          "statusDescrip": {
+            "type": "string",
+            "example": "Eligible for unlimited mobility offers",
+            "description": "CTV consent or eligibility related description"
+          },
+          "eligibilityStatus": {
+            "type": "array",
+            "xml": {
+              "name": "eligibilityStatus",
+              "wrapped": true
+            },
+            "items": {
+              "type": "object",
+              "$ref": "#/components/schemas/eligibilityStatus"
+            }
+          }
+        }
+      },
+      "eligibilityStatus": {
+        "type": "object",
+        "required": [
+          "paramName",
+          "paramValue"
+        ],
+        "properties": {
+          "paramName": {
+            "type": "string",
+            "description": "Name of the Parameter",
+            "example": "SOC1"
+          },
+          "paramValue": {
+            "type": "string",
+            "example": true,
+            "description": "Value of the Parameter"
+          }
+        }
+      },
+      "resetPassword": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "contactPassword",
+          "email",
+          "userToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "userToken": {
+            "type": "string",
+            "example": "HSxd-r5nc-aXGo-fpkU-oMR0-cRuY-mr",
+            "description": "Unique user token generated for the account on successful authentication at portal."
+          },
+          "email": {
+            "type": "string",
+            "example": "vProjectz2206201702@yopmail.com",
+            "description": "User’s registered email-id"
+          },
+          "contactPassword": {
+            "type": "string",
+            "example": "att!23457",
+            "description": "Existing Customer password"
+          }
+        }
+      },
+      "applyCouponV2": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "couponCode"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique token generated for the customer on successful            authentication"
+          },
+          "couponCode": {
+            "type": "string",
+            "example": "test524311424",
+            "description": "Coupon code, which is to be redeemed on the product."
+          }
+        }
+      },
+      "getCustomerSecurityQuestions": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "<sessionToken>",
+            "description": "Unique identifier of the account."
+          }
+        }
+      },
+      "updateCustomerSecurity": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "questions"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "<sessionToken>",
+            "description": "Unique identifier of the account."
+          },
+          "questions": {
+            "type": "array",
+            "xml": {
+              "name": "questions",
+              "wrapped": true
+            },
+            "items": {
+              "type": "object",
+              "$ref": "#/components/schemas/questions"
+            }
+          }
+        }
+      },
+      "questions": {
+        "type": "object",
+        "required": [
+          "code",
+          "answer"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Specific code related to security question",
+            "example": "code"
+          },
+          "answer": {
+            "type": "string",
+            "example": "answer",
+            "description": "Answer related to the question"
+          }
+        }
+      },
+      "cancelBundledSubscription": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "status",
+          "ban",
+          "subscriberId",
+          "cancellationDateInMilli",
+          "reasonCodeId"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "status": {
+            "type": "string",
+            "example": "Out Of Compliance",
+            "description": "Status of the cancel bundledsubscription Unique token generated for the customer on successful authentication"
+          },
+          "ban": {
+            "type": "integer",
+            "example": 23456643,
+            "description": "Billing Account Number"
+          },
+          "subscriberId": {
+            "type": "string",
+            "example": 456642345,
+            "description": "Unique identification number of Subscriber"
+          },
+          "cancellationDateInMilli": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1501525800000,
+            "description": "Cancellation DateTime in milliseconds"
+          },
+          "reasonCodeId": {
+            "type": "string",
+            "example": 1,
+            "description": "Reason code for the cancellation of subscription. Values 1, Switching from Choice to plus, Switchin from  Plus to choice."
+          }
+        }
+      },
+      "logOutUser": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique token generated for the customer on successful            authentication"
+          }
+        }
+      },
+      "getAllSecurityQuestions": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          }
+        }
+      },
+      "forgotContactPassword": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "email"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "email": {
+            "type": "string",
+            "example": "mzulu_1498638896@yopmail.com",
+            "description": "User Email"
+          }
+        }
+      },
+      "changePassword": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "oldPassword",
+          "newPassword",
+          "confirmNewpassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique token generated for the customer on successful authentication."
+          },
+          "oldPassword": {
+            "type": "string",
+            "example": "att!23456",
+            "description": "Existing Customer password"
+          },
+          "newPassword": {
+            "type": "string",
+            "example": "att!23457",
+            "description": "new Customer password"
+          },
+          "confirmNewpassword": {
+            "type": "string",
+            "example": "att!23456",
+            "description": "new Customer password"
+          }
+        }
+      },
+      "getPayments": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project.",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project."
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project."
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique identifier of the account."
+          }
+        }
+      },
+      "removeSubscription": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "serviceType",
+          "serviceID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "serviceType": {
+            "type": "string",
+            "example": "PRODUCT",
+            "description": "Product/Package"
+          },
+          "serviceID": {
+            "type": "string",
+            "example": "BASE-ZULUINCLUDED-201707",
+            "description": "SKU/ Quick code of the product in Ev System"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique identifier of the account."
+          },
+          "reasonCode": {
+            "type": "string",
+            "example": 1,
+            "description": "Reason code for subscription removal"
+          }
+        }
+      },
+      "removeSubsciptions": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "quantity",
+          "serviceID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique identifier of the account."
+          },
+          "services": {
+            "type": "array",
+            "xml": {
+              "name": "services",
+              "wrapped": true
+            },
+            "items": {
+              "type": "object",
+              "$ref": "#/components/schemas/services"
+            }
+          }
+        }
+      },
+      "services": {
+        "type": "object",
+        "required": [
+          "serviceId",
+          "quantity"
+        ],
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "serviceId of the Service",
+            "example": "PROMO-HBOSKINNY-201703"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 1,
+            "description": "Quantity of the Service"
+          }
+        }
+      },
+      "updatePaymentInfo": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "label",
+          "cpCustomerID",
+          "spAccountID",
+          "CardInfoMessage",
+          "PayPalAccountMessage"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project.",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project."
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique token generated for the customer on successful             authentication."
+          },
+          "label": {
+            "type": "string",
+            "example": "Card",
+            "description": "Label of the payment method."
+          },
+          "status": {
+            "type": "string",
+            "example": "Active",
+            "description": "status of the Payment method."
+          },
+          "isAutoPayment": {
+            "type": "string",
+            "example": true,
+            "description": "true, if auto Payment Method. Else, false."
+          },
+          "CardInfoMessage": {
+            "type": "object",
+            "$ref": "#/components/schemas/CardInfoMessage"
+          }
+        }
+      },
+      "CardInfoMessage": {
+        "type": "object",
+        "required": [
+          "billingAddress"
+        ],
+        "properties": {
+          "billingAddress": {
+            "type": "object",
+            "$ref": "#/components/schemas/billingAddress"
+          },
+          "cardNumber": {
+            "type": "string",
+            "description": "Unique number of the credit/debit card",
+            "example": 5555555555554444
+          },
+          "cardType": {
+            "type": "string",
+            "description": "Card type of the account holder",
+            "example": "MasterCard"
+          },
+          "expiryDate": {
+            "type": "string",
+            "description": "expiryDate of the card in MM/YYYY format",
+            "example": "11/202"
+          },
+          "methodType": {
+            "type": "string",
+            "description": "Payment method typer",
+            "example": "General"
+          },
+          "securityCode": {
+            "type": "string",
+            "description": "Security code as on the Card",
+            "example": 123
+          },
+          "nameOnCard": {
+            "type": "string",
+            "description": "Name on the card",
+            "example": "Micheal"
+          }
+        }
+      },
+      "billingAddress": {
+        "type": "object",
+        "required": [
+          "address1",
+          "city",
+          "state",
+          "country",
+          "zipCode"
+        ],
+        "properties": {
+          "address1": {
+            "type": "string",
+            "description": "Address of the customer",
+            "example": "AT&T"
+          },
+          "city": {
+            "type": "string",
+            "example": "New York",
+            "description": "City of the customer"
+          },
+          "state": {
+            "type": "string",
+            "example": "MA",
+            "description": "State of the customer"
+          },
+          "country": {
+            "type": "string",
+            "example": "US",
+            "description": "Country of the user"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": 88011,
+            "description": "ZipCode of the Address"
+          }
+        }
+      },
+      "updateContact": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "customerUsername",
+          "customerPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project.",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project."
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project."
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "u3ER-FVhn-1ujD-4qAE-7s0n-Nkjf-Cr",
+            "description": "Unique token generated for the customer on successful             authentication."
+          },
+          "customerUsername": {
+            "type": "string",
+            "example": "rzulu_1498649781@yopmail.com",
+            "description": "Customer username."
+          },
+          "customerPassword": {
+            "type": "string",
+            "example": "att!23456",
+            "description": "Customer password"
+          },
+          "email": {
+            "type": "string",
+            "example": "rzulu_1498649781@yopmail.com",
+            "description": "User Email"
+          },
+          "alertNotificationEmail": {
+            "type": "string",
+            "example": true,
+            "description": "Email Opt-in."
+          },
+          "customerOldPassword": {
+            "type": "string",
+            "example": "att!23456",
+            "description": "Customer’s Old password (Mandatory in the case if we              provide customer password"
+          }
+        }
+      },
+      "getActiveSubscriptions": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "98wO-RZi9-mOgc-DUfI-pTjL-I9ey-9V",
+            "description": "Unique identifier of the account."
+          }
+        }
+      },
+      "getPaymentMethods": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "5eTa-i7I4-CMy0-cdMV-Kr1q-A90s-9T",
+            "description": "Unique token generated for the customer on successful            authentication."
+          }
+        }
+      },
+      "reactivateSubscription": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "reactivatedItems"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "7CT1-o4ax-Q6rc-hSCe-qXnB-DRLG-tI",
+            "description": "Unique token generated for the customer on successful            authentication"
+          },
+          "reactivatedItems": {
+            "type": "string",
+            "example": [
+              "BASE-UNL-201707",
+              "hbo"
+            ],
+            "description": "String array containing Sku’s of services to be                  reactivated"
+          }
+        }
+      },
+      "getContact": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "98wO-RZi9-mOgc-DUfI-pTjL-I9ewwwy-9V",
+            "description": "Unique identifier of the account."
+          }
+        }
+      },
+      "isCustomerEligible": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessiontoken": {
+            "type": "string",
+            "example": "98wO-RZi9-mOgc-DUfI-pTjL-I9ey-9V",
+            "description": "A unique token generated for the customer on                     successful authentication."
+          }
+        }
+      },
+      "getProrateWithTax": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "dmaID",
+          "itemsInfo"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "98wO-RZi9-mOgc-DUfI-pTjL-I9ey-9V",
+            "description": "Discrete Area Id of the Prject"
+          },
+          "dmaID": {
+            "type": "string",
+            "example": 1,
+            "description": "salesChannel of the customer"
+          },
+          "itemsInfo": {
+            "type": "array",
+            "xml": {
+              "name": "itemsInfo",
+              "wrapped": true
+            },
+            "items": {
+              "type": "object",
+              "$ref": "#/components/schemas/itemsInfo"
+            }
+          },
+          "address": {
+            "type": "object",
+            "xml": {
+              "name": "address",
+              "wrapped": true
+            },
+            "items": {
+              "type": "object",
+              "$ref": "#/components/schemas/address"
+            }
+          }
+        }
+      },
+      "itemsInfo": {
+        "type": "object",
+        "required": [
+          "serviceId",
+          "serviceType",
+          "quantity"
+        ],
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "serviceId of the Service",
+            "example": "BASE-ZULUSTANDALONE-201707"
+          },
+          "serviceType": {
+            "type": "string",
+            "example": "Product",
+            "description": "serviceType of the Service"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 1,
+            "description": "Quantity of the Service"
+          }
+        }
+      },
+      "address": {
+        "type": "object",
+        "required": [
+          "city",
+          "state",
+          "country",
+          "zipCode",
+          "address1",
+          "address2"
+        ],
+        "properties": {
+          "address1": {
+            "type": "string",
+            "description": "Address 1 of the customer",
+            "example": "4412 Maricopa Circle"
+          },
+          "city": {
+            "type": "string",
+            "example": "Las Cruces",
+            "description": "City of the Customer"
+          },
+          "state": {
+            "type": "string",
+            "example": "NM",
+            "description": "State of the Customer"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country of the Customer",
+            "example": "US"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": 88011,
+            "description": "Zip Code of the Customer"
+          },
+          "address2": {
+            "type": "string",
+            "example": "4412 Maricopa Circle",
+            "description": "Address 2 of the customer"
+          }
+        }
+      },
+      "addSubscriptions": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "sessionToken",
+          "services"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "98wO-RZi9-mOgc-DUfI-pTjL-I9ey-9V",
+            "description": "Discrete Area Id of the Prject"
+          },
+          "paymentmethodInfo": {
+            "type": "obeject",
+            "$ref": "#/components/schemas/paymentmethodInfo"
+          },
+          "services": {
+            "type": "array",
+            "$ref": "#/components/schemas/addSubscriptionServices"
+          },
+          "originAddressURL": {
+            "type": "string",
+            "example": "https://www.test.com",
+            "description": "URL from where address originates"
+          },
+          "collectedFromStore": {
+            "type": "boolean",
+            "example": false,
+            "description": "Indicate whether service to be collected from store or            not."
+          },
+          "sameAsBillingAddress": {
+            "type": "boolean",
+            "example": false,
+            "description": "Indicates whether the shipping address is same as                billing address or not"
+          },
+          "shippingAddress": {
+            "type": "string",
+            "$ref": "#/components/schemas/shippingAddress"
+          }
+        }
+      },
+      "shippingAddress": {
+        "type": "object",
+        "required": [
+          "address1",
+          "address2",
+          "city",
+          "state",
+          "country",
+          "zipCode"
+        ],
+        "properties": {
+          "address1": {
+            "type": "string",
+            "description": "Address of the customer",
+            "example": "4412 Maricopa Circle"
+          },
+          "address2": {
+            "type": "string",
+            "description": "Address of the customer",
+            "example": "4412 Maricopa Circle"
+          },
+          "city": {
+            "type": "string",
+            "example": "Las Cruces",
+            "description": "City of the customer"
+          },
+          "state": {
+            "type": "string",
+            "example": "NM",
+            "description": "State of the customer"
+          },
+          "country": {
+            "type": "string",
+            "example": "US",
+            "description": "Country of the user"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": 88011,
+            "description": "ZipCode of the Address"
+          }
+        }
+      },
+      "paymentmethodInfo": {
+        "type": "object",
+        "required": [
+          "label",
+          "makeAutoPayment",
+          "cardInfoMsg"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "example": "Card",
+            "description": "Label of the payment method"
+          },
+          "makeAutoPayment": {
+            "type": "boolean",
+            "example": true,
+            "description": "To make card as auto payment method."
+          },
+          "cardInfoMsg": {
+            "type": "object",
+            "$ref": "#/components/schemas/CardInfoMessage"
+          }
+        }
+      },
+      "addSubscriptionServices": {
+        "type": "object",
+        "required": [
+          "serviceType",
+          "quantity",
+          "serviceId"
+        ],
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "serviceId of the Service",
+            "example": "BASE-ZULUSTANDALONE-201707"
+          },
+          "serviceType": {
+            "type": "string",
+            "example": "Product",
+            "description": "serviceType of the Service"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 1,
+            "description": "Quantity of the Service"
+          }
+        }
+      },
+      "customerLoginRequestMessage": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "channelPartnerID",
+          "apiPassword",
+          "deviceId",
+          "contactUserName",
+          "customerPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "channel partner Id of the project",
+            "example": "ZULU1"
+          },
+          "apiUser": {
+            "type": "string",
+            "example": "zuluapiuser",
+            "description": "API User Name for the project"
+          },
+          "apiPassword": {
+            "type": "string",
+            "example": "zulu@p!123",
+            "description": "API Password for the project"
+          },
+          "contactUserName": {
+            "type": "string",
+            "example": "001",
+            "description": "Customer User name"
+          },
+          "contactPassword": {
+            "type": "string",
+            "example": "att!23456",
+            "description": "Customer password"
+          },
+          "deviceId": {
+            "type": "string",
+            "example": "536c01ac-0e50-a0",
+            "description": "deviceId Number of the device"
+          },
+          "deviceType": {
+            "type": "string",
+            "example": "mobile",
+            "description": "deviceId Number of the device"
+          },
+          "deviceName": {
+            "type": "string",
+            "example": "Samsung",
+            "description": "deviceId Number of the device"
+          }
+        }
+      }
+    }
+  }
+}
