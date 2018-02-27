@@ -3648,7 +3648,7 @@
           }
         }
       },
-      "isCustomerEligibleForFreeTrial": {
+      "isCustomerEligible": {
         "type": "object",
         "required": [
           "apiUser",
