@@ -6,7 +6,7 @@ servers:
     url:
       # note! no enum here means it is an open value
       default: demo
-      description: this value is assigned by the service provider, in this example `***.evergent.com`
+      description: this value is assigned by the service provider URL, in this example `***.evergent.com`
     basePath:
       # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `***`
       default: demo
