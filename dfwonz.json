@@ -2,12 +2,17 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "description": "Local URL",
-      "url": "http://192.169.0.178:50560/cgi-bin/WebObjects/UMServices.woa/dfwonz"
-    },
-    {
-      "description": "UAT URL",
-      "url": "https://rest-uat-att.evergent.com/dfwonz"
+      "url": "https://{url}/{basePath}",
+      "description": "The Staging API server",
+      "variables": {
+        "url": {
+          "default": "demo.evergent.com",
+          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
+        },
+        "basePath": {
+          "default": "ev"
+        }
+      }
     }
   ],
   "info": {
